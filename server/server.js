@@ -1,20 +1,46 @@
-const express = require("express");
-const cors = require("cors");
+// server.js (root of server folder)
 require("dotenv").config();
 
+const express = require("express");
+const cors = require("cors");
+const connectDB = require("./config/database");
+
+const productRoutes = require("./routes/products");
+const cartRoutes = require("./routes/cart");
+const orderRoutes = require("./routes/orders");
+const paymentRoutes = require("./routes/payment");
+const authRoutes = require("./routes/auth"); // if you create auth routes (recommended)
+
+connectDB();
+
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors());
-app.use(express.json());
+// Stripe webhook must read raw body, keep it exact path below
+app.use((req, res, next) => {
+  if (req.originalUrl === "/api/payment/stripe/webhook") {
+    express.raw({ type: "application/json" })(req, res, next);
+  } else {
+    express.json()(req, res, next);
+  }
+});
 
-// Test Route
+// CORS + JSON
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+
+// Routes (mount paths)
+app.use("/api/products", productRoutes);
+app.use("/api/cart", cartRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/payment", paymentRoutes);
+app.use("/api/auth", authRoutes);
+
 app.get("/", (req, res) => {
-  res.send("ZAMANA Backend is running 🚀");
+  res.json({
+    message: "ZAMANA Backend API Running",
+    version: "1.0.0",
+    time: new Date().toISOString(),
+  });
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log("✔ Server running on port:", PORT));
