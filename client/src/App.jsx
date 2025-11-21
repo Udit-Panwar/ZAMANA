@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-
+import "./index.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -13,6 +13,7 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import PlaceOrder from "./pages/PlaceOrder";
 import Orders from "./pages/Orders";
+import About from "./pages/About"
 
 const App = () => {
   const isOwnerPath = useLocation().pathname.includes("owner");
@@ -26,9 +27,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collection" element={<Collection />} />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
 
-          {/* Product Details Page */}
+          Product Details Page
           <Route path="/product/:id" element={<Product />} />
 
           {/* Cart Page */}

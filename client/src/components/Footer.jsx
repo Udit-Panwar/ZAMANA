@@ -1,129 +1,182 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-
+import React, { useState } from "react";  // change by me
 
 const Footer = () => {
-  const shopLinks = ["Home", "Collection", "About", "Contact","New Arrivals"];
+  const [email, setEmail] = useState("");
+  const shopLinks = ["Home", "Collection", "About", "Contact", "New Arrivals"];
   const supportLinks = ["Help Center", "Shipping", "Returns", "Size Guide", "Track Order"];
 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    const email = e.target.email.value.trim();
-    if (!email) {
-      // You can replace with a toast in your app
+    if (!email.trim()) {
       alert("Please enter a valid email address.");
       return;
     }
-    // TODO: integrate with your newsletter API
     alert(`Thanks! ${email} has been subscribed.`);
-    e.target.reset();
+    setEmail("");
   };
 
   return (
-    <footer className="w-full bg-black/85 text-white">
+    <footer className="w-full relative overflow-hidden">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-purple-950 to-black"></div>
+
+      {/* Animated orbs */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-purple-600 rounded-full mix-blend-screen opacity-5 blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-600 rounded-full mix-blend-screen opacity-5 blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+
+      {/* Grid pattern */}
+      <div className="absolute inset-0 opacity-[0.02] bg-gradient-to-b from-white via-transparent to-transparent" style={{
+        backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(255,255,255,.1) 25%, rgba(255,255,255,.1) 26%, transparent 27%, transparent 74%, rgba(255,255,255,.1) 75%, rgba(255,255,255,.1) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255,255,255,.1) 25%, rgba(255,255,255,.1) 26%, transparent 27%, transparent 74%, rgba(255,255,255,.1) 75%, rgba(255,255,255,.1) 76%, transparent 77%, transparent)',
+        backgroundSize: '60px 60px'
+      }}></div>
+
       {/* Top section */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* About */}
-          <div className="space-y-4">
-            <NavLink to="/" className="inline-flex items-center gap-3">
-              <span className="text-2xl font-bold">BrandName</span>
-            </NavLink>
+          <div className="group">
+            {/* Glassmorphism card */}
+            <div className="relative p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple-400/50 transition-all duration-300 h-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-pink-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-            <p className="text-sm text-white/90 max-w-sm">
-              Your go-to destination for stylish, comfortable, and high-quality clothing. We bring the latest trends, fast delivery, and a seamless shopping experience—right to your doorstep.
-            </p>
+              <div className="relative space-y-4">
+                <span className="text-3xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
+                  BrandName
+                </span>
 
-            <div className="flex items-center gap-3 mt-2">
-              {/* Social icons (white) */}
-              <a href="#" aria-label="Instagram" className="p-2 rounded hover:bg-white/10 transition">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7z" />
-                  <path d="M12 7.5A4.5 4.5 0 1 1 7.5 12 4.505 4.505 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.503 2.503 0 0 0 12 9.5zM18.5 6.25a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5z" />
-                </svg>
-              </a>
+                <p className="text-sm text-white/80 leading-relaxed group-hover:text-white/90 transition-colors">
+                  Your go-to destination for stylish, comfortable, and high-quality clothing. We bring the latest trends, fast delivery, and a seamless shopping experience.
+                </p>
 
-              <a href="#" aria-label="Facebook" className="p-2 rounded hover:bg-white/10 transition">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.2v-2.9h2.2V9.2c0-2.2 1.3-3.4 3.3-3.4.96 0 1.96.17 1.96.17v2.2h-1.12c-1.1 0-1.44.68-1.44 1.38v1.64h2.45l-.39 2.9h-2.06V22A10 10 0 0 0 22 12z"></path>
-                </svg>
-              </a>
+                <div className="flex items-center gap-2 pt-2">
+                  {/* Social icons */}
+                  <a
+                    href="https://wa.me/1234567890"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                    className="p-2.5 rounded-lg bg-white/5 hover:bg-green-500/20 border border-white/10 hover:border-green-400/50 transition-all duration-300 group/social"
+                  >
+                    <svg className="w-5 h-5 text-white group-hover/social:text-green-300 transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                    </svg>
+                  </a>
 
-              <a href="#" aria-label="Twitter" className="p-2 rounded hover:bg-white/10 transition">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M22 5.92c-.6.27-1.25.45-1.93.53a3.4 3.4 0 0 0 1.48-1.88 6.63 6.63 0 0 1-2.15.82 3.33 3.33 0 0 0-5.68 3.04 9.44 9.44 0 0 1-6.85-3.48 3.33 3.33 0 0 0 1.03 4.45 3.26 3.26 0 0 1-1.51-.42v.04a3.33 3.33 0 0 0 2.67 3.27c-.45.12-.92.14-1.4.05a3.36 3.36 0 0 0 3.12 2.32A6.67 6.67 0 0 1 3 18.57a9.4 9.4 0 0 0 5.1 1.5c6.12 0 9.47-5.07 9.47-9.47v-.43A6.64 6.64 0 0 0 22 5.92z" />
-                </svg>
-              </a>
+                  <a href="#" aria-label="Facebook" className="p-2.5 rounded-lg bg-white/5 hover:bg-pink-500/20 border border-white/10 hover:border-pink-400/50 transition-all duration-300 group/social">
+                    <svg className="w-5 h-5 text-white group-hover/social:text-pink-300 transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.2v-2.9h2.2V9.2c0-2.2 1.3-3.4 3.3-3.4.96 0 1.96.17 1.96.17v2.2h-1.12c-1.1 0-1.44.68-1.44 1.38v1.64h2.45l-.39 2.9h-2.06V22A10 10 0 0 0 22 12z"></path>
+                    </svg>
+                  </a>
+
+                  <a
+                    href="https://maps.google.com/?q=Your+Business+Address"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Location"
+                    className="p-2.5 rounded-lg bg-white/5 hover:bg-red-500/20 border border-white/10 hover:border-red-400/50 transition-all duration-300 group/social"
+                  >
+                    <svg className="w-5 h-5 text-white group-hover/social:text-red-300 transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Shop Links */}
-          <div>
-            <h4 className="font-semibold mb-3">Shop</h4>
-            <ul className="space-y-2 text-sm text-white/90">
-              {shopLinks.map((s, idx) => (
-                <li key={idx}>
-                  <a href="#" className="hover:underline">
-                    {s}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className="group">
+            <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple-400/50 transition-all duration-300 h-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative">
+                <h4 className="font-semibold text-white mb-4 text-lg">Shop</h4>
+                <ul className="space-y-3">
+                  {shopLinks.map((s, idx) => (
+                    <li key={idx}>
+                      <a href="#" className="text-sm text-white/70 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block relative group/link">
+                        {s}
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover/link:w-full transition-all duration-300"></span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
 
           {/* Support Links */}
-          <div>
-            <h4 className="font-semibold mb-3">Support</h4>
-            <ul className="space-y-2 text-sm text-white/90">
-              {supportLinks.map((s, idx) => (
-                <li key={idx}>
-                  <a href="#" className="hover:underline">
-                    {s}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className="group">
+            <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-pink-400/50 transition-all duration-300 h-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-600/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative">
+                <h4 className="font-semibold text-white mb-4 text-lg">Support</h4>
+                <ul className="space-y-3">
+                  {supportLinks.map((s, idx) => (
+                    <li key={idx}>
+                      <a href="#" className="text-sm text-white/70 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block relative group/link">
+                        {s}
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 group-hover/link:w-full transition-all duration-300"></span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
 
-          {/* Newsletter / Contact */}
-          <div className="space-y-4">
-            <h4 className="font-semibold">Get 10% off — Join our newsletter</h4>
-            <p className="text-sm text-white/90">Subscribe for exclusive offers, early access to new drops, and styling tips.</p>
+          {/* Newsletter */}
+          <div className="group">
+            <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple-400/50 transition-all duration-300 h-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative space-y-4">
+                <h4 className="font-semibold text-white text-lg">Get 10% off</h4>
+                <p className="text-sm text-white/70 group-hover:text-white/80 transition-colors">Subscribe for exclusive offers and early access.</p>
 
-            <form onSubmit={handleSubscribe} className="flex w-full max-w-sm gap-2">
-              <label htmlFor="email" className="sr-only">Email address</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-full text-white focus:outline-none"
-                required
-              />
-              <button type="submit" className="px-4 py-2 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition">
-                Subscribe
-              </button>
-            </form>
+                <div className="space-y-3">
+                  <div className="relative">
+                    <input
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      type="email"
+                      placeholder="your@email.com"
+                      className="w-full px-4 py-2.5 rounded-full bg-white/10 border border-white/20 focus:border-purple-400 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-purple-400/20 transition-all duration-300"
+                    />
+                  </div>
+                  <button onClick={handleSubscribe} className="w-full px-4 py-2.5 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
+                    Subscribe
+                  </button>
+                </div>
 
-            <div className="text-sm text-white/70">
-              <p>Customer care: <a href="tel:+1234567890" className="hover:underline">+1 (234) 567-890</a></p>
-              <p>Email: <a href="mailto:hello@brand.com" className="hover:underline">hello@brand.com</a></p>
+                <div className="space-y-2 pt-2 text-xs text-white/60 group-hover:text-white/70 transition-colors">
+                  <p>Customer care: <a href="tel:+1234567890" className="hover:text-white transition-colors">+1 (234) 567-890</a></p>
+                  <p>Email: <a href="mailto:hello@brand.com" className="hover:text-white transition-colors">hello@brand.com</a></p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex flex-col md:flex-row items-center justify-between text-sm text-white/70">
-          <div className="mb-3 md:mb-0">
+      <div className="relative border-t border-white/10 backdrop-blur-xl bg-white/5">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row items-center justify-between text-sm">
+          <div className="text-white/60 mb-4 md:mb-0">
             © {new Date().getFullYear()} BrandName. All rights reserved.
           </div>
 
-          <div className="flex items-center gap-4">
-            <a href="#" className="hover:underline">Terms</a>
-            <a href="#" className="hover:underline">Privacy</a>
-            <a href="#" className="hover:underline">Sitemap</a>
+          <div className="flex items-center gap-6">
+            <a href="#" className="text-white/60 hover:text-white relative group/footer transition-colors">
+              Terms
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover/footer:w-full transition-all duration-300"></span>
+            </a>
+            <a href="#" className="text-white/60 hover:text-white relative group/footer transition-colors">
+              Privacy
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover/footer:w-full transition-all duration-300"></span>
+            </a>
+            <a href="#" className="text-white/60 hover:text-white relative group/footer transition-colors">
+              Sitemap
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover/footer:w-full transition-all duration-300"></span>
+            </a>
           </div>
         </div>
       </div>
@@ -132,99 +185,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-// import React from "react";
-// import {
-//   FaInstagram,
-//   FaFacebookF,
-//   FaTwitter,
-//   FaLinkedinIn,
-// } from "react-icons/fa";
-
-// const Footer = () => {
-//   return (
-//     <footer className="w-full bg-gray-50 pt-14 pb-8 border-t border-gray-200">
-//       <div className="max-w-7xl mx-auto px-6">
-
-//         {/* Top Section */}
-//         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-
-//           {/* Brand */}
-//           <div>
-//             <h2 className="text-2xl font-semibold">QuickStay</h2>
-//             <p className="text-gray-600 mt-3 max-w-xs">
-//               Discover the world's most extraordinary places to stay, from boutique hotels to luxury villas and private islands.
-//             </p>
-
-//             <div className="flex gap-4 mt-4 text-xl text-gray-600">
-//               <FaInstagram className="cursor-pointer hover:text-black" />
-//               <FaFacebookF className="cursor-pointer hover:text-black" />
-//               <FaTwitter className="cursor-pointer hover:text-black" />
-//               <FaLinkedinIn className="cursor-pointer hover:text-black" />
-//             </div>
-//           </div>
-
-//           {/* Company */}
-//           <div>
-//             <h3 className="font-semibold text-lg mb-3">COMPANY</h3>
-//             <ul className="space-y-2 text-gray-600">
-//               <li className="cursor-pointer hover:text-black">About</li>
-//               <li className="cursor-pointer hover:text-black">Careers</li>
-//               <li className="cursor-pointer hover:text-black">Press</li>
-//               <li className="cursor-pointer hover:text-black">Blog</li>
-//               <li className="cursor-pointer hover:text-black">Partners</li>
-//             </ul>
-//           </div>
-
-//           {/* Support */}
-//           <div>
-//             <h3 className="font-semibold text-lg mb-3">SUPPORT</h3>
-//             <ul className="space-y-2 text-gray-600">
-//               <li className="cursor-pointer hover:text-black">Help Center</li>
-//               <li className="cursor-pointer hover:text-black">Safety Information</li>
-//               <li className="cursor-pointer hover:text-black">Cancellation Options</li>
-//               <li className="cursor-pointer hover:text-black">Contact Us</li>
-//               <li className="cursor-pointer hover:text-black">Accessibility</li>
-//             </ul>
-//           </div>
-
-//           {/* Stay Updated */}
-//           <div>
-//             <h3 className="font-semibold text-lg mb-3">STAY UPDATED</h3>
-//             <p className="text-gray-600 mb-4">
-//               Subscribe to our newsletter for travel inspiration and special offers.
-//             </p>
-
-//             <div className="flex">
-//               <input
-//                 type="email"
-//                 placeholder="Your email"
-//                 className="w-full border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none"
-//               />
-//               <button className="bg-black text-white px-4 rounded-r-lg">
-//                 →
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Divider */}
-//         <hr className="border-gray-300 my-10" />
-
-//         {/* Bottom Section */}
-//         <div className="flex flex-col md:flex-row justify-between text-gray-500 text-sm">
-//           <p>© 2025 QuickStay. All rights reserved.</p>
-
-//           <div className="flex gap-6 mt-4 md:mt-0">
-//             <p className="cursor-pointer hover:text-black">Privacy</p>
-//             <p className="cursor-pointer hover:text-black">Terms</p>
-//             <p className="cursor-pointer hover:text-black">Sitemap</p>
-//           </div>
-//         </div>
-
-//       </div>
-//     </footer>
-//   );
-// };
-
-// export default Footer;
