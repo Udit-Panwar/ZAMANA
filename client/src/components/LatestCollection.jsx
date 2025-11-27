@@ -3,16 +3,16 @@ import React, { useState } from 'react'   // change by me
 const LatestCollection = () => {
 
     const [latestProducts] = useState([
-        { _id: 1, image: 'https://images.unsplash.com/photo-1495385794356-15371f348c31?w=300&h=400&fit=crop', name: 'Classic Dress', price: '$45' },
-        { _id: 2, image: 'https://images.unsplash.com/photo-1506629082632-401017062ee0?w=300&h=400&fit=crop', name: 'Summer Top', price: '$35' },
-        { _id: 3, image: 'https://images.unsplash.com/photo-1551555895-cbf4dca2d474?w=300&h=400&fit=crop', name: 'Denim Jacket', price: '$65' },
-        { _id: 4, image: 'https://images.unsplash.com/photo-1539533857671-33ddf92c74d2?w=300&h=400&fit=crop', name: 'White Shirt', price: '$40' },
-        { _id: 5, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=400&fit=crop', name: 'Casual Pants', price: '$55' },
-        { _id: 6, image: 'https://images.unsplash.com/photo-1612336307429-8a88e8d08dbb?w=300&h=400&fit=crop', name: 'Cozy Sweater', price: '$50' },
-        { _id: 7, image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=300&h=400&fit=crop', name: 'Casual Shorts', price: '$38' },
-        { _id: 8, image: 'https://images.unsplash.com/photo-1608408741619-872bac1a5ffa?w=300&h=400&fit=crop', name: 'Floral Blouse', price: '$42' },
-        { _id: 9, image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=300&h=400&fit=crop', name: 'Trendy Vest', price: '$48' },
-        { _id: 10, image: 'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=300&h=400&fit=crop', name: 'Elegant Cardigan', price: '$60' },
+        { _id: 1, image: 'https://images.unsplash.com/photo-1495385794356-15371f348c31?w=300&h=400&fit=crop', name: 'Classic Dress', price: 'INR 4030' },
+        { _id: 2, image: 'https://images.unsplash.com/photo-1506629082632-401017062ee0?w=300&h=400&fit=crop', name: 'Summer Top', price: 'INR 3500' },
+        { _id: 3, image: 'https://images.unsplash.com/photo-1551555895-cbf4dca2d474?w=300&h=400&fit=crop', name: 'Denim Jacket', price: 'INR 6500' },
+        { _id: 4, image: 'https://images.unsplash.com/photo-1539533857671-33ddf92c74d2?w=300&h=400&fit=crop', name: 'White Shirt', price: 'INR 4600' },
+        { _id: 5, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=400&fit=crop', name: 'Casual Pants', price: 'INR 5650' },
+        { _id: 6, image: 'https://images.unsplash.com/photo-1612336307429-8a88e8d08dbb?w=300&h=400&fit=crop', name: 'Cozy Sweater', price: 'INR 5500' },
+        { _id: 7, image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=300&h=400&fit=crop', name: 'Casual Shorts', price: 'INR 3480' },
+        { _id: 8, image: 'https://images.unsplash.com/photo-1608408741619-872bac1a5ffa?w=300&h=400&fit=crop', name: 'Floral Blouse', price: 'INR 4200' },
+        { _id: 9, image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=300&h=400&fit=crop', name: 'Trendy Vest', price: 'INR 4870' },
+        { _id: 10, image: 'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=300&h=400&fit=crop', name: 'Elegant Cardigan', price: 'INR 6080' },
     ]);
 
     const [hoveredId, setHoveredId] = useState(null);
@@ -161,16 +161,16 @@ const LatestCollection = () => {
 
             {/* Bottom CTA */}
             <div className='relative px-6 md:px-12 lg:px-24 py-16 text-center border-t border-cyan-500/30'>
-                <div className='inline-flex gap-2 mb-6'>
+                {/* <div className='inline-flex gap-2 mb-6'>
                     <div className='w-2 h-2 bg-cyan-500 rounded-full animate-pulse'></div>
                     <div className='w-2 h-2 bg-orange-500 rounded-full animate-pulse' style={{ animationDelay: '0.3s' }}></div>
                     <div className='w-2 h-2 bg-pink-500 rounded-full animate-pulse' style={{ animationDelay: '0.6s' }}></div>
-                </div>
+                </div> */}
 
-                <button className='relative group px-10 py-4 bg-gradient-to-r from-cyan-500 via-orange-500 to-pink-500 text-black font-black text-lg uppercase tracking-widest overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/50' style={{ fontFamily: 'Trebuchet MS, sans-serif', letterSpacing: '2px' }}>
+                {/* <button className='relative group px-10 py-4 bg-gradient-to-r from-cyan-500 via-orange-500 to-pink-500 text-black font-black text-lg uppercase tracking-widest overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/50' style={{ fontFamily: 'Trebuchet MS, sans-serif', letterSpacing: '2px' }}>
                     <div className='absolute inset-0 bg-gradient-to-r from-cyan-600 via-orange-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity'></div>
                     <span className='relative'>EXPLORE MORE</span>
-                </button>
+                </button> */}
             </div>
         </div>
     )

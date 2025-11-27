@@ -1,8 +1,19 @@
-import React, { useState } from "react";  // change by me
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
-  const shopLinks = ["Home", "Collection", "About", "Contact", "New Arrivals"];
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const shopLinks = [
+    { label: "Home", path: "/" },
+    { label: "Collection", path: "/collection" },
+    { label: "About", path: "/about" },
+    { label: "Contact", path: "/contact" },
+    // { label: "New Arrivals", path: "/new-arrivals" }
+  ];
+
   const supportLinks = ["Help Center", "Shipping", "Returns", "Size Guide", "Track Order"];
 
   const handleSubscribe = (e) => {
@@ -13,6 +24,14 @@ const Footer = () => {
     }
     alert(`Thanks! ${email} has been subscribed.`);
     setEmail("");
+  };
+
+  const isLinkActive = (path) => {
+    return location.pathname === path;
+  };
+
+  const handleShopLinkClick = (path) => {
+    navigate(path);
   };
 
   return (
@@ -35,7 +54,6 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* About */}
           <div className="group">
-            {/* Glassmorphism card */}
             <div className="relative p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple-400/50 transition-all duration-300 h-full">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-pink-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
@@ -49,7 +67,6 @@ const Footer = () => {
                 </p>
 
                 <div className="flex items-center gap-2 pt-2">
-                  {/* Social icons */}
                   <a
                     href="https://wa.me/1234567890"
                     target="_blank"
@@ -91,12 +108,21 @@ const Footer = () => {
               <div className="relative">
                 <h4 className="font-semibold text-white mb-4 text-lg">Shop</h4>
                 <ul className="space-y-3">
-                  {shopLinks.map((s, idx) => (
+                  {shopLinks.map((item, idx) => (
                     <li key={idx}>
-                      <a href="#" className="text-sm text-white/70 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block relative group/link">
-                        {s}
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover/link:w-full transition-all duration-300"></span>
-                      </a>
+                      <button
+                        onClick={() => handleShopLinkClick(item.path)}
+                        className={`text-sm transition-all duration-300 inline-block relative group/link cursor-pointer border-none bg-transparent ${
+                          isLinkActive(item.path)
+                            ? "text-purple-400 font-semibold"
+                            : "text-white/70 hover:text-white"
+                        }`}
+                      >
+                        {item.label}
+                        <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transition-all duration-300 ${
+                          isLinkActive(item.path) ? "w-full" : "w-0 group-hover/link:w-full"
+                        }`}></span>
+                      </button>
                     </li>
                   ))}
                 </ul>

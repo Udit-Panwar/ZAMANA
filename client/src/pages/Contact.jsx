@@ -265,8 +265,8 @@ export default function Contact() {
                 {[
                   { icon: "📘", color: "from-blue-600 to-blue-800", label: "Facebook" },
                   { icon: "📸", color: "from-pink-600 to-purple-600", label: "Instagram" },
-                  { icon: "🐦", color: "from-sky-500 to-blue-600", label: "Twitter" },
-                  { icon: "💼", color: "from-blue-700 to-blue-900", label: "LinkedIn" }
+                  // { icon: "🐦", color: "from-sky-500 to-blue-600", label: "Twitter" },
+                  // { icon: "💼", color: "from-blue-700 to-blue-900", label: "LinkedIn" }
                 ].map((social, idx) => (
                   <a
                     key={idx}
@@ -284,12 +284,12 @@ export default function Contact() {
 
         {/* FAQ Section */}
         <div className="mt-20 animate-fade-in-up">
-          <div className="text-center mb-12">
+          {/* <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
             <p className="text-gray-400">Quick answers to common questions</p>
-          </div>
+          </div> */}
 
-          <div className="grid md:grid-cols-2 gap-6">
+          {/* <div className="grid md:grid-cols-2 gap-6">
             {[
               { q: "What are your business hours?", a: "We're available Monday to Saturday, 9 AM to 6 PM IST" },
               { q: "How quickly do you respond?", a: "We typically respond within 24 hours on business days" },
@@ -307,7 +307,7 @@ export default function Contact() {
                 <p className="text-gray-400 leading-relaxed">{faq.a}</p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 

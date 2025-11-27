@@ -25,7 +25,7 @@ const products = [
     img: [
       "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?q=80&w=2072&auto=format&fit=crop",
     ],
-    rating: 4.6,
+    // rating: 4.6,
     stock: 12,
     shipping: "Free Delivery",
     description: "A stylish smart watch with fitness tracking & notifications.",
@@ -39,7 +39,7 @@ const products = [
     img: [
       "https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=800",
     ],
-    rating: 4.3,
+    // rating: 4.3,
     stock: 5,
     shipping: "Express Delivery",
     description: "Premium sound quality with long battery life.",
@@ -53,7 +53,7 @@ const products = [
     img: [
       "https://images.unsplash.com/photo-1522336572468-97b06e8ef143?w=800",
     ],
-    rating: 4.7,
+    // rating: 4.7,
     stock: 8,
     shipping: "Free Delivery",
     description: "Premium leather handbag with spacious compartments.",
@@ -67,7 +67,7 @@ const products = [
     img: [
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800",
     ],
-    rating: 4.2,
+    // rating: 4.2,
     stock: 14,
     shipping: "Express Delivery",
     description: "Comfortable and lightweight running shoes.",
@@ -81,7 +81,7 @@ const products = [
     img: [
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800",
     ],
-    rating: 4.4,
+    // rating: 4.4,
     stock: 25,
     shipping: "Free Delivery",
     description: "Comfortable casual cotton T-shirt.",
@@ -95,7 +95,7 @@ const products = [
     img: [
       "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800",
     ],
-    rating: 4.5,
+    // rating: 4.5,
     stock: 18,
     shipping: "Free Delivery",
     description: "Stylish UV protection sunglasses.",
@@ -235,7 +235,7 @@ export default function Collection() {
                   {/* Rating & Stock */}
                   <div className="flex items-center justify-between text-xs text-gray-400 mb-4">
                     <span className="flex items-center gap-1">
-                      <span className="text-yellow-400">⭐</span>
+                      {/* <span className="text-yellow-400">⭐</span> */}
                       {product.rating}
                     </span>
                     <span className="text-green-400">
@@ -422,7 +422,7 @@ function QuickViewModal({ item, onClose }) {
             </p>
 
             {/* Rating & Stock */}
-            <div className="flex items-center justify-between mb-6 text-sm">
+            {/* <div className="flex items-center justify-between mb-6 text-sm">
               <span className="flex items-center gap-2 text-gray-300">
                 <span className="text-yellow-400 text-lg">⭐</span>
                 <span className="font-semibold">{item.rating}</span>
@@ -430,7 +430,7 @@ function QuickViewModal({ item, onClose }) {
               <span className="text-green-400 font-semibold">
                 {item.stock} in stock
               </span>
-            </div>
+            </div> */}
 
             {/* Prices */}
             <div className="flex items-center gap-4 mb-8">
