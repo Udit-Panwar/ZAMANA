@@ -13,7 +13,9 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import PlaceOrder from "./pages/PlaceOrder";
 import Orders from "./pages/Orders";
-import About from "./pages/About"
+import About from "./pages/About";
+import ComingSoon from "./components/ComingSoon";
+import PageNotFound from "./components/PageNotFound";
 
 const App = () => {
   const isOwnerPath = useLocation().pathname.includes("owner");
@@ -29,21 +31,19 @@ const App = () => {
           <Route path="/collection" element={<Collection />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-
+          <Route path="/upcoming" element={<ComingSoon />} />
           Product Details Page
           <Route path="/product/:id" element={<Product />} />
-
           {/* Cart Page */}
           <Route path="/cart" element={<Cart />} />
-
           {/* Auth */}
           <Route path="/login" element={<Login />} />
-
           {/* Checkout */}
           <Route path="/place-order" element={<PlaceOrder />} />
-
           {/* Order History */}
           <Route path="/orders" element={<Orders />} />
+          {/* Catch-all route should be LAST */}
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
 

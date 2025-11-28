@@ -44,6 +44,7 @@
 //  export default Hero
 import React from "react";
 import { assets } from "../assets/assets";
+import { href } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -63,7 +64,7 @@ const Hero = () => {
         crafted to elevate your everyday look with timeless designs.
       </p>
 
-      <button className="mt-4 px-6 py-3 bg-white text-black font-medium rounded-full hover:bg-gray-200 transition">
+      <button className="mt-4 px-6 py-3 bg-white text-black font-medium rounded-full hover:bg-gray-200 transition" onClick={()=> window.location.href="/collection"}>
         Shop Now
       </button>
     </div>

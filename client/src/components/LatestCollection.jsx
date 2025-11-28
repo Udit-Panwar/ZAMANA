@@ -161,11 +161,11 @@ const LatestCollection = () => {
 
             {/* Bottom CTA */}
             <div className='relative px-6 md:px-12 lg:px-24 py-16 text-center border-t border-cyan-500/30'>
-                <div className='inline-flex gap-2 mb-6'>
+                {/* <div className='inline-flex gap-2 mb-6'>
                     <div className='w-2 h-2 bg-cyan-500 rounded-full animate-pulse'></div>
                     <div className='w-2 h-2 bg-orange-500 rounded-full animate-pulse' style={{ animationDelay: '0.3s' }}></div>
                     <div className='w-2 h-2 bg-pink-500 rounded-full animate-pulse' style={{ animationDelay: '0.6s' }}></div>
-                </div>
+                </div> */}
 
                 <button className='relative group px-10 py-4 bg-gradient-to-r from-cyan-500 via-orange-500 to-pink-500 text-black font-black text-lg uppercase tracking-widest overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/50' style={{ fontFamily: 'Trebuchet MS, sans-serif', letterSpacing: '2px' }}>
                     <div className='absolute inset-0 bg-gradient-to-r from-cyan-600 via-orange-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity'></div>
